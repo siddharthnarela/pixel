@@ -7,6 +7,8 @@ export default function PixelArtCard({ item }) {
   const navigation = useNavigation();
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const borderAnim = useRef(new Animated.Value(0)).current;
+
+
   
   useEffect(() => {
     // Card border animation
@@ -41,7 +43,7 @@ export default function PixelArtCard({ item }) {
       })
     ]).start();
     
-    // Navigate to detail screen with item data
+    
     navigation.navigate('ArtDetail', { item });
   };
   
@@ -69,7 +71,7 @@ export default function PixelArtCard({ item }) {
         <View className="bg-black w-full aspect-square">
           <Image 
             className="w-full h-full" 
-            source={{ uri: item.imageUrl }}
+            source={{ uri: item.imageUri }}
             resizeMode="cover"
           />
         </View>

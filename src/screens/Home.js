@@ -5,15 +5,14 @@ import { StatusBar } from 'expo-status-bar';
 
 import { Feather } from '@expo/vector-icons'; // Assuming you're using Expo
 import Gallery from './Gallery';
+import Create from './Create';
 export default function Home({ navigation }) {
   const [activeTab, setActiveTab] = useState('gallery');
 
   // Tab configuration
   const tabs = [
-    { id: 'home', icon: 'home', label: 'Home' },
-    { id: 'explore', icon: 'compass', label: 'Explore' },
-    { id: 'create', icon: 'plus-circle', label: 'Create' },
     { id: 'gallery', icon: 'grid', label: 'Gallery' },
+    { id: 'create', icon: 'plus-circle', label: 'Create' },
     { id: 'profile', icon: 'user', label: 'Profile' }
   ];
 
@@ -31,21 +30,9 @@ export default function Home({ navigation }) {
       {/* Main Content Area */}
       <View className="flex-1 p-5">
         {activeTab === 'gallery' && <Gallery />}
-        {activeTab === 'home' && (
-          <View className="flex-1 items-center justify-center">
-            <Text className="text-white text-xl">Home Screen</Text>
-          </View>
-        )}
-        {activeTab === 'explore' && (
-          <View className="flex-1 items-center justify-center">
-            <Text className="text-white text-xl">Explore Screen</Text>
-          </View>
-        )}
-        {activeTab === 'create' && (
-          <View className="flex-1 items-center justify-center">
-            <Text className="text-white text-xl">Create Screen</Text>
-          </View>
-        )}
+        
+        
+        {activeTab === 'create' && <Create/>}
         {activeTab === 'profile' && (
           <View className="flex-1 items-center justify-center">
             <Text className="text-white text-xl">Profile Screen</Text>
@@ -70,8 +57,8 @@ export default function Home({ navigation }) {
                   style={tab.id === 'create' ? { marginTop: -20 } : {}}
                 >
                   {tab.id === 'create' ? (
-                    <View className="bg-blue-500 rounded-full w-14 h-14 items-center justify-center">
-                      <Feather name={tab.icon} size={28} color="#ffffff" />
+                    <View className="bg-blue-500 rounded-full w-20 h-20 items-center justify-center">
+                      <Feather name={tab.icon} size={32} color="#ffffff" />
                     </View>
                   ) : (
                     <>
